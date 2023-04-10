@@ -25,3 +25,4 @@ sound.addEventListener('click', function(){
     }
     yoga1.style.display="none";
 })
+
