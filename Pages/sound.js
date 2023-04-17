@@ -8,7 +8,7 @@ greensounds.forEach(sound => {
 });
 greenbuttons.forEach((button, i) => {
     button.addEventListener("click", () => {
-        playmusic(greenaudio, i)
+        playmusic(greenaudio, i, button)
     });
   });
 
@@ -67,14 +67,16 @@ brownslider.forEach((slider, i) => {
     }, false);
   });
 
-function playmusic(array, i){
+function playmusic(array, i, element){
     audio=array[i]
     if(!audio.paused) { /* Check if it's not paused */
         audio.pause();  /* To pause the audio */
         audio.currentTime = 0;  /* To reset the time back to 0 */
+        element.style.backgroundColor="red"
     }
     else {
         audio.play();  /* To make it play again */
+        element.style.backgroundColor="green"
     }
 }
 
