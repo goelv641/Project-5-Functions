@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/reset.css" rel="stylesheet">
+    <!-- <link href="assets/reset.css" rel="stylesheet"> -->
     <link href="assets/style.css" rel="stylesheet">
     <!-- <script defer src="main.js"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,7 @@
         <button class="green">sound1</button>
         <input type="range" min="0" max="10" value="5" class="greenslider">
     </div>
+
     <div>
         <button class="green">sound2</button>
         <input type="range" min="0" max="10" value="5" class="greenslider">
@@ -25,6 +26,7 @@
         <button class="green">sound3</button>
         <input type="range" min="0" max="10" value="5" class="greenslider">
      </div>
+
      <div>
         <button class="white">sound1</button>
         <input type="range" min="0" max="10" value="5" class="whiteslider">
@@ -61,9 +63,15 @@
         <button class="pink">sound3</button>
         <input type="range" min="0" max="10" value="5" class="pinkslider">
      </div>
-    
+    </div>
     <button class="refresh">reset</button>
     <button class="pause">pause</button>
+
+    <svg>
+        <filter id='f'>
+            <feTurbulence type='fractalNoise' baseFrequency='7.5'/>
+        </filter>
+    </svg>
     
     </body>
     <script src="./Pages/sound.js">
