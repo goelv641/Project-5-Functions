@@ -1,7 +1,7 @@
 // GREEN
 let greenbuttons=document.querySelectorAll(".green")
-let greensounds=["../P5 Sounds/ambience-sounds-8-15136.mp3", "../P5 Sounds/ambient-3-13571.mp3", "../P5 Sounds/ambient-noise-142658.mp3"]
-let greenchecks=[true,true,true]
+let greensounds=["./P5 Sounds/ambience-sounds-8-15136.mp3", "./P5 Sounds/ambient-3-13571.mp3", "./P5 Sounds/ambient-noise-142658.mp3"]
+
 let greenaudio=[]
 greensounds.forEach(sound => {
     greenaudio.push (new Audio(sound))
@@ -23,7 +23,7 @@ greenslider.forEach((slider, i) => {
 
 // WHITE
   let whitebuttons=document.querySelectorAll(".white")
-let whitesounds=["../P5 Sounds/ambience-sounds-8-15136.mp3", "../P5 Sounds/ambient-3-13571.mp3", "../P5 Sounds/ambient-noise-142658.mp3"]
+let whitesounds=["./P5 Soun./ambience-sounds-8-15136.mp3", "./P5 Sounds/ambient-3-13571.mp3", "./P5 Sounds/ambient-noise-142658.mp3"]
 let whitechecks=[true,true,true]
 let whiteaudio=[]
 
@@ -32,7 +32,7 @@ whitesounds.forEach(sound => {
 });
 whitebuttons.forEach((button, i) => {
     button.addEventListener("click", () => {
-        playmusic(whiteaudio, i)
+        playmusic(whiteaudio, i, button)
     });
   });
 
@@ -46,7 +46,7 @@ whitebuttons.forEach((button, i) => {
   
 // BROWN
 let brownbuttons=document.querySelectorAll(".brown")
-let brownsounds=["../P5 Sounds/ambience-sounds-8-15136.mp3", "../P5 Sounds/ambient-3-13571.mp3", "../P5 Sounds/ambient-noise-142658.mp3"]
+let brownsounds=["./P5 Sounds/ambience-sounds-8-15136.mp3", "./P5 Sounds/ambient-3-13571.mp3", "./P5 Sounds/ambient-noise-142658.mp3"]
 let brownchecks=[true,true,true]
 let brownaudio=[]
 brownsounds.forEach(sound => {
@@ -54,7 +54,7 @@ brownsounds.forEach(sound => {
 });
 brownbuttons.forEach((button, i) => {
     button.addEventListener("click", () => {
-        playmusic(brownaudio, i)
+        playmusic(brownaudio, i, button)
     });
   });
 
@@ -73,15 +73,66 @@ function playmusic(array, i, element){
         audio.pause();  /* To pause the audio */
         audio.currentTime = 0;  /* To reset the time back to 0 */
         element.style.backgroundColor="red"
+        element.classList.remove("clicked")
     }
+
+
     else {
         audio.play();  /* To make it play again */
         element.style.backgroundColor="green"
+        element.classList.add("clicked")
     }
 }
+
+function pausemusic(array, i, element){
+  audio=array[i]
+  if(!audio.paused) { /* Check if it's not paused */
+      audio.pause();  /* To pause the audio */
+      audio.currentTime = 0;  /* To reset the time back to 0 */
+      element.style.backgroundColor="red"
+      element.classList.remove("clicked")
+      element.classList.add("clicked2")
+  }
+  else if(element.classList.contains("clicked") || element.classList.contains("clicked2")){
+    audio.play();  /* To make it play again */
+    element.style.backgroundColor="green"
+}
+}
+
+
+// PINK
+let pinkbuttons=document.querySelectorAll(".brown")
+let pinksounds=["./P5 Sounds/ambience-sounds-8-15136.mp3", "./P5 Sounds/ambient-3-13571.mp3", "./P5 Sounds/ambient-noise-142658.mp3"]
+let pinkchecks=[true,true,true]
+let pinkaudio=[]
+brownsounds.forEach(sound => {
+    pinkaudio.push (new Audio(sound))
+});
+pinkbuttons.forEach((button, i) => {
+    button.addEventListener("click", () => {
+        playmusic(pinkaudio, i, button)
+    });
+  });
+
+  let pinkslider=document.querySelectorAll(".pinkslider")
+pinkslider.forEach((slider, i) => {
+    slider.addEventListener("change", function() {
+    console.log(slider.value)
+   pinkaudio[i].volume=slider.value/10
+    }, false);
+  });
+
+
 
 // REFRESH\
 document.querySelector(".refresh").addEventListener("click", function(){
     window.location.reload();
     })
+
+// PAUSE/PLAY\
+document.querySelector(".pause").addEventListener("click", function(){
+    greenbuttons.forEach((button, i) => {
+          pausemusic(greenaudio, i, button)
+    });
+  })
 
