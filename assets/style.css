@@ -4,31 +4,6 @@
 
 body {
     font-family: 'Space Grotesk', sans-serif;
-    &::before, &::after {
-		position: fixed;
-		inset: 0;
-		z-index: -1;
-		--grad: 
-			radial-gradient(at 25%, 
-					red, #{rgba(red, .2)} 50%, transparent 70%);
-		--mask: var(--grad), var(--grad), var(--grad);
-		-webkit-mask: var(--mask);
-		-webkit-mask-composite: source-in;
-						mask: var(--mask);
-						mask-composite: intersect;
-		mix-blend-mode: color;
-		content: ''
-	}
-	
-	&::before {
-		background: #000;
-		filter: url(#f)
-	}
-	
-	&::after {
-		background: linear-gradient(90deg, purple, navy 20%, aqua);
-	}
-}
 }
 
 section {
