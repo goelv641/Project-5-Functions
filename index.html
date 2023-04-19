@@ -12,73 +12,73 @@
 </head>
 
 <body>
+    <div class="page">
 <div class="player">
     <div class="topbutt">
         <button class="refresh">reset</button>
         <button class="pause">pause</button>
     </div>
+<div class="left">
 <div class="greensounds">
-        <div>
+        <div class="g">
             <button class="green">WATERFALL</button>
             <input type="range" min="0" max="10" value="5" class="greenslider">
         </div>  
-        <div>
+        <div class="g">
             <button class="green">RIVER</button>
             <input type="range" min="0" max="10" value="5" class="greenslider">
         </div>
-        <div>
+        <div class="g">
             <button class="green">OCEAN</button>
             <input type="range" min="0" max="10" value="5" class="greenslider">
         </div>
 </div>
 <div class="whitesounds">
-        <div>
+        <div class="w">
             <button class="white">FAN</button>
             <input type="range" min="0" max="10" value="5" class="whiteslider">
         </div>
-        <div>
+        <div class="w">
             <button class="white">VACCUM</button>
             <input type="range" min="0" max="10" value="5" class="whiteslider">
         </div>
-        <div>
-            <button class="white">AIR CONDITIONER</button>
+        <div class="w">
+            <button class="white">AIR CON</button>
             <input type="range" min="0" max="10" value="5" class="whiteslider">
         </div>
 </div>
+</div>
+<div class="right">
 <div class="brownsounds">
-        <div>
+        <div class="b">
             <button class="brown">ROARING</button>
             <input type="range" min="0" max="10" value="5" class="brownslider">
         </div>
-        <div>
+        <div class="b">
             <button class="brown">SHOWER</button>
             <input type="range" min="0" max="10" value="5" class="brownslider">
         </div>
-        <div>
+        <div class="b">
             <button class="brown">THUNDER</button>
             <input type="range" min="0" max="10" value="5" class="brownslider">
         </div>
 </div>
 <div class="pinksounds">
-    <div>
+    <div class="p">
         <button class="pink">LEAVES</button>
         <input type="range" min="0" max="10" value="5" class="pinkslider">
     </div>
-    <div>
+    <div class="p">
         <button class="pink">RAIN</button>
         <input type="range" min="0" max="10" value="5" class="pinkslider">
     </div>
-    <div>
+    <div class="p">
         <button class="pink">CRICKETS</button>
         <input type="range" min="0" max="10" value="5" class="pinkslider">
     </div>
 </div>
 </div>
-<svg>
-    <filter id='f'>
-        <feTurbulence type='fractalNoise' baseFrequency='7.5'/>
-    </filter>
-</svg>
+</div>
 <div class="text">
     <header>
 	    <h1>sough.</h1>
@@ -96,6 +96,12 @@
         <br>Pause and Play the current&nbsp;sounds
         <br>Sliders to manage volume and&nbsp;frequency</p>
      </div>
+</div>
+<svg>
+    <filter id='f'>
+        <feTurbulence type='fractalNoise' baseFrequency='7.5'/>
+    </filter>
+</svg>
 </div>
 </body>
 

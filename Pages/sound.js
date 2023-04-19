@@ -1,6 +1,6 @@
 // GREEN
 let greenbuttons=document.querySelectorAll(".green")
-let greensounds=["./P5 Sounds/ambience-sounds-8-15136.mp3", "./P5 Sounds/ambient-3-13571.mp3", "./P5 Sounds/ambient-noise-142658.mp3"]
+let greensounds=["P5 Sounds/soft-rain-ambient-111154.mp3", "./P5 Sounds/calm-river-ambience-loop-125071.mp3", "./P5 Sounds/ambient-noise-142658.mp3"]
 
 let greenaudio=[]
 greensounds.forEach(sound => {
@@ -72,14 +72,14 @@ function playmusic(array, i, element){
     if(!audio.paused) { /* Check if it's not paused */
         audio.pause();  /* To pause the audio */
         audio.currentTime = 0;  /* To reset the time back to 0 */
-        element.style.backgroundColor="red"
+        element.style.backgroundColor="rgba(255, 255, 255, 0.236)"
         element.classList.remove("clicked")
     }
 
 
     else {
         audio.play();  /* To make it play again */
-        element.style.backgroundColor="green"
+        element.style.borderColor="white"
         element.classList.add("clicked")
     }
 }
@@ -89,13 +89,13 @@ function pausemusic(array, i, element){
   if(!audio.paused) { /* Check if it's not paused */
       audio.pause();  /* To pause the audio */
       audio.currentTime = 0;  /* To reset the time back to 0 */
-      element.style.backgroundColor="red"
+      element.style.backgroundColor="rgba(255, 255, 255, 0.236)"
       element.classList.remove("clicked")
       element.classList.add("clicked2")
   }
   else if(element.classList.contains("clicked") || element.classList.contains("clicked2")){
     audio.play();  /* To make it play again */
-    element.style.backgroundColor="green"
+    element.style.borderColor="#0FE07C"
 }
 }
 
@@ -132,7 +132,16 @@ document.querySelector(".refresh").addEventListener("click", function(){
 // PAUSE/PLAY\
 document.querySelector(".pause").addEventListener("click", function(){
     greenbuttons.forEach((button, i) => {
-          pausemusic(greenaudio, i, button)
+      pausemusic(greenaudio, i, button)
+    });
+    pinkbuttons.forEach((button, i) => {
+      pausemusic(pinkaudio, i, button)
+    });
+    whitebuttons.forEach((button, i) => {
+      pausemusic(whiteaudio, i, button)
+    });
+    brownbuttons.forEach((button, i) => {
+      pausemusic(brownaudio, i, button)
     });
   })
 
